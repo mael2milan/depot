@@ -3,17 +3,29 @@ import sys, re
 
 """
 
-Ce module permet l acquisition  de 3 manières différentes d une liste
+Ce module permet l acquisition  de 3 manières différentes d'une liste
 
 """
 
-def test1():
-    while True:
-        line = input("? ").rstrip("\n").strip()
-        if line=="":
-            break
-        lline = re.split(r' +',line.rstrip("\n"))
-        print(lline)
+def test():
+    if len(sys.argv) == 1:
+        print(False)
+        print(sys.argv)
+    elif len(sys.argv) == 2:
+        print(True)
+        print(sys.argv)
+    else:
+        print(sys.argv)
+
+test()
+
+# def test1():
+#     while True:
+#         line = input("? ").rstrip("\n").strip()
+#         if line=="":
+#             break
+#         lline = re.split(r' +',line.rstrip("\n"))
+#         print(lline)
 
 
 
