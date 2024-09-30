@@ -1,7 +1,7 @@
 #!/bin/env python3
-import module_v2
+import module_v2 as mod 
 
-l = module_v2.acquisition()  
+l = mod.acquisition()  
 
 def minmax(l):
     if type(l[0])==int:
@@ -11,7 +11,6 @@ def minmax(l):
             minmax(i)
 
 if __name__=="__main__":
-    l = construire()
     maxi = []
     minmax(l)
     print(min(maxi))

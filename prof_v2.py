@@ -1,7 +1,7 @@
 #!/bin/env python3
-import module_v2
+import module_v2 as mod
 
-l = module_v2.acquisition()
+l = mod.acquisition()
 
 def profondeur(l):
     def _profondeur(l,p):
@@ -15,3 +15,7 @@ def profondeur(l):
     prof=float("-inf")
     _profondeur(l,1)
     return(prof)
+
+if __name__=="__main__":              
+    print(f"{l=}")
+    print(f"{profondeur(l)=}")

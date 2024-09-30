@@ -24,30 +24,29 @@ def acquisition():
                 else:
                     l.append(int(lline[i]))   
                     i+=1
-        if __name__=="__main__":
-            while True:
-                line = input("? ").rstrip("\n").strip()
-                if line=="":
-                    break
-                lline = re.split(r' +',line.rstrip("\n"))
-                i = 0
-                l = construire1()                    
-                return l
+        while True:
+            line = input("? ").rstrip("\n").strip()
+            if line=="":
+                break
+            lline = re.split(r' +',line.rstrip("\n"))
+            i = 0
+            l = construire1()                    
+            return l
     elif len(sys.argv) == 2:
         """ Acquisition depuis un fichier source """
         def construire2(l0):
             def _construire2():
                 nonlocal i
-                l = []          # sous-liste courante
+                l = []          
                 while True:
-                    if l0[i]=="[":   # c'est une sous-liste de listes
+                    if l0[i]=="[": 
                         i+=1                 
-                        if i!=1:             # pour la premiÃ¨re sous-liste, on ne fait rien
-                            l.append(_construire2())    # sinon on construit cette sous-liste et on la met dans la sous-liste courante
-                    elif l0[i]=="]": # c'est la fin de la sous-liste courante,
+                        if i!=1:             
+                            l.append(_construire2())
+                    elif l0[i]=="]": 
                         i+=1
-                        return l             # on renvoie la sous-liste courante
-                    else:                  # c'est une sous-liste d'entiers
+                        return l             
+                    else:                  
                         l.append(int(l0[i]))   
                         i+=1
             i = 0
@@ -80,7 +79,4 @@ def acquisition():
                             i+=1
                 i = 1                              
                 return _construire3()
-        return construire3() #construit la liste de base
-
-print(acquisition())
-
+        return construire3()
